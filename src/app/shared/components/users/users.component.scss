@@ -1,0 +1,77 @@
+.header-icon-buttons {
+    float: right;
+    height: 40px;
+    line-height: 40px;
+}
+.box-body {
+    padding: 0px;
+}
+.mat-icon {
+    font-size: 32px;
+    height: 32px;
+    width: 32px;
+}
+.grey {
+    color: rgb(117, 117, 117);
+}
+.user-info {
+    height: 120px;
+    display: flex;
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+.user-info:hover {
+    cursor: pointer;
+}
+.user-icon {
+    width: 40px;
+    display: inline-block;
+    text-align: center;
+    margin: 0px 25px 0px 25px;
+    height: 100%;
+    line-height: 120px;
+}
+.user-data {
+    width: 400px;
+    display: inline-block;
+    font-size: 19px;
+    height: 100%;
+}
+.middle-weigth {
+    font-weight: 500;
+    margin-top: 22px;
+}
+.margin-top-3 {
+    margin-top: 9px;
+}
+.margin-left-5 {
+    margin-left: 15px;
+}
+.margin-bottom-1 {
+    margin-bottom: 3px;
+}
+.scrolling {
+    max-height: 800px;
+    overflow-y: scroll;
+}
+::-webkit-scrollbar {
+    width: 0px;
+}
+@media screen and (max-width: 1080px) {
+    .scrolling {
+        max-height: 350px;
+    }
+}
+.custom-panel {
+    border-radius: 0px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    border-top: 1px solid rgb(224, 224, 224);
+    box-shadow: none;
+}
+.filter-input {
+    width: 100%;
+    font-size: 18px;
+}
+.custom {
+    color: rgb(49, 170, 222);
+}
+

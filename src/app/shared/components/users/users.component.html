@@ -1,0 +1,45 @@
+<div class="box box-default">
+  <div class="box-header box-dark">
+    Users
+    <div class="header-icon-buttons">
+      <button mat-icon-button class="margin-left-5">
+        <mat-icon class="grey">filter_list</mat-icon>
+      </button>
+      <button mat-icon-button (click)="panelOpened = !panelOpened" class="margin-left-5">
+        <mat-icon class="grey">search</mat-icon>
+      </button>
+    </div>
+  </div>
+  <mat-expansion-panel class="custom-panel" [(expanded)]="panelOpened">
+    <div>
+      <mat-form-field class="filter-input">
+        <input matInput [(ngModel)]="filterStr" (keyup)="applyFilter()" autocomplete="off" placeholder="Name">
+        <button matSuffix mat-icon-button *ngIf="filterStr" (click)="clearFilter()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </mat-expansion-panel>
+  <div class="box-body scrolling">
+    <div *ngIf="isProcessing">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      <div class="loading">Loading...</div>
+    </div>
+    <div (click)="selectUser(user)" *ngFor="let user of filtredUsers">
+      <div matRipple class="user-info">
+        <div class="user-icon">
+          <div class="margin-top-3"></div>
+          <mat-icon [ngClass]="{
+            grey: !user.selected,
+            custom: user.selected
+          }">account_circle</mat-icon>
+        </div>
+        <div class="user-data">
+          <div class="middle-weigth margin-bottom-1">{{user.name}}</div>
+          <div class="grey margin-bottom-1">{{user.username}}</div>
+          <div class="grey">{{user.email}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$ls-app-primary: mat-palette($mat-blue-grey, 900);
+$ls-app-accent: mat-palette($mat-blue, A200, A100, A400);
+
+$ls-app-warn: mat-palette($mat-red);
+
+$ls-app-theme: mat-light-theme($ls-app-primary, $ls-app-accent, $ls-app-warn);
+
+@include angular-material-theme($ls-app-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: rgb(243, 243, 243);
+}
+
+.box {
+    position: relative;
+    border: 0;
+    border-radius: 0.2rem;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.box-default {
+    background-color: #fff;
+}
+
+.box .box-dark {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.box-body {
+    padding: 1rem;
+}
+
+.box-header {
+    padding: 0.75rem 1.75rem;
+    border-bottom: 1px solid transparent;
+    border-radius: -0.8rem -0.8rem 0 0;
+    font-weight: 500;
+    font-size: 28px;
+    height: 50px;
+    line-height: 50px;
+}
+
+// users
+.mat-expansion-panel-body {
+    padding: 10px 30px 0px 30px !important;
+}
+
+// albums
+.mat-card-header-text {
+    margin: 0px !important;
+}
+// common
+.loading {
+    padding: 10px;
+    height: 30px;
+    font: 20px Roboto, "Helvetica Neue", sans-serif;
+}

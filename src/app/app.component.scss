@@ -1,0 +1,114 @@
+.main {
+    margin: 6px 50px 25px 50px;
+}
+.users {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 30px;
+    width: 400px;
+    margin-bottom: 1rem;
+}
+.albums {
+    display: inline-block;
+    vertical-align: top;
+    width: 1350px;
+    margin-bottom: 1rem;
+}
+@media screen and (max-width: 1880px) {
+    .albums {
+        width: 1250px;
+    }
+}
+@media screen and (max-width: 1780px) {
+    .albums {
+        width: 1150px;
+    }
+}
+@media screen and (max-width: 1680px) {
+    .albums {
+        width: 1050px;
+    }
+}
+@media screen and (max-width: 1580px) {
+    .albums {
+        width: 950px;
+    }
+}
+@media screen and (max-width: 1480px) {
+    .albums {
+        width: 850px;
+    }
+}
+@media screen and (max-width: 1380px) {
+    .albums {
+        width: 750px;
+    }
+}
+@media screen and (max-width: 1280px) {
+    .albums {
+        width: 650px;
+    }
+}
+@media screen and (max-width: 1180px) {
+    .albums {
+        width: 550px;
+    }
+}
+@media screen and (max-width: 1080px) {
+    .main {
+        margin: 6px auto;
+        max-width: 640px;
+    }
+    .albums {
+        width: 640px;
+    }
+    .users {
+        margin-right: 0px;
+        width: 640px;
+    }
+}
+@media screen and (max-width: 660px) {
+    .main {
+        max-width: 520px;
+    }
+    .albums {
+        width: 520px;
+    }
+    .users {
+        width: 520px;
+    }
+}
+@media screen and (max-width: 540px) {
+    .main {
+        max-width: 420px;
+    }
+    .albums {
+        width: 420px;
+    }
+    .users {
+        width: 420px;
+    }
+}
+@media screen and (max-width: 440px) {
+    .main {
+        max-width: 340px;
+    }
+    .users {
+        width: 340px;
+    }
+    .albums {
+        width: 340px;
+    }
+}
+@media screen and (max-width: 360px) {
+    .main {
+        max-width: 300px;
+    }
+    .users {
+        width: 300px;
+    }
+    .albums {
+        width: 300px;
+    }
+}
+
