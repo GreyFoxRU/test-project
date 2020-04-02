@@ -61,6 +61,11 @@
         max-height: 350px;
     }
 }
+@media screen and (max-width: 360px) {
+    .user-data {
+        font-size: 16px;
+    }
+}
 .custom-panel {
     border-radius: 0px;
     border-bottom: 1px solid rgb(224, 224, 224);
