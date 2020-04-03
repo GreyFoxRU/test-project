@@ -15,8 +15,8 @@ export class AlbumsComponent extends Common implements OnInit {
 
   selectedUser: IUser | undefined;
   userAlbums: IAlbum[] = [];
-
   selectedAlbumIds: SelectionModel<number> = new SelectionModel<number>(true);
+  private _selectAll: boolean = false;
 
   constructor(private communicationService: CommunicationService) {
     super();
@@ -29,6 +29,7 @@ export class AlbumsComponent extends Common implements OnInit {
     } else {
       this.selectedAlbumIds.deselect(...albumids);
     }
+    this._selectAll = value;
   }
 
   get selectAll() {
@@ -38,7 +39,7 @@ export class AlbumsComponent extends Common implements OnInit {
         selectedAll = false;
       }
     }
-    return selectedAll;
+    return this.userAlbums.length ? selectedAll : this._selectAll;
   }
 
   ngOnInit(): void {
