@@ -2,19 +2,30 @@
   <div class="box-header box-dark">
     Users
     <div class="header-icon-buttons">
-      <button mat-icon-button class="margin-left-5 padding-top-1">
+      <button mat-icon-button
+              class="margin-left-5 padding-top-1">
         <mat-icon class="grey">filter_list</mat-icon>
       </button>
-      <button mat-icon-button (click)="panelOpened = !panelOpened" class="margin-left-5 padding-top-1">
+      <button mat-icon-button
+              (click)="panelOpened = !panelOpened"
+              class="margin-left-5 padding-top-1">
         <mat-icon class="grey">search</mat-icon>
       </button>
     </div>
   </div>
-  <mat-expansion-panel class="custom-panel" [(expanded)]="panelOpened">
+  <mat-expansion-panel class="custom-panel"
+                       [(expanded)]="panelOpened">
     <div>
       <mat-form-field class="filter-input">
-        <input matInput [(ngModel)]="filterStr" (keyup)="applyFilter()" autocomplete="off" placeholder="Name">
-        <button matSuffix mat-icon-button *ngIf="filterStr" (click)="clearFilter()">
+        <input matInput
+               [(ngModel)]="filterStr"
+               (keyup)="applyFilter()"
+               autocomplete="off"
+               placeholder="Name">
+        <button matSuffix
+                mat-icon-button
+                *ngIf="filterStr"
+                (click)="clearFilter()">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
@@ -25,8 +36,10 @@
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
       <div class="loading">Loading...</div>
     </div>
-    <div (click)="selectUser(user)" *ngFor="let user of filtredUsers">
-      <div matRipple class="user-info">
+    <div (click)="selectUser(user)"
+         *ngFor="let user of filtredUsers">
+      <div matRipple
+           class="user-info">
         <div class="user-icon">
           <div class="margin-top-3"></div>
           <mat-icon [ngClass]="{

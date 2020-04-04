@@ -26,9 +26,8 @@ export class UsersComponent extends Common implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    try {
-      this.setIsLoading();
-      const response: HttpResponse<IUser[]> = await this.communicationService.getUsers();
+    this.setIsLoading();
+    this.communicationService.getUsers().subscribe((response: HttpResponse<IUser[]>) => {
       if (response.status <= 300) {
         this.users = response.body.map((user) => {
           return {
@@ -37,29 +36,35 @@ export class UsersComponent extends Common implements OnInit {
           };
         });
         this.applyFilter();
+        // очистка таймаута
         window.clearTimeout(this.loadingTimeout);
         this.isProcessing = false;
       }
-      // else можно обработать разные коды запросов, я лучше бы сделала интерцептор, но в задаче этого нет =)
-    } catch (err) {
-      console.error(err);
-    }
-
+    });
   }
 
+  /**
+   * Отправляет данные по выбранному пользователю в компонент Albums
+   * @param selectedUser - выбранный пользователь
+   */
   selectUser(selectedUser: IUserExtension): void {
     for (const user of this.users) {
       user.selected = false;
     }
     selectedUser.selected = true;
     this.communicationService.selectedUser$.next(selectedUser);
-    console.log(this.communicationService.selectedUser$.getValue());
   }
 
+  /**
+   * Применяет поисковый фильтр на массив пользователей
+   */
   applyFilter() {
     this.filtredUsers = this.users.filter((user) => user.name.toLocaleLowerCase().includes(this.filterStr.toLocaleLowerCase()));
   }
 
+  /**
+   * Сброс поискового фильтра
+   */
   clearFilter() {
     this.filterStr = '';
     this.applyFilter();

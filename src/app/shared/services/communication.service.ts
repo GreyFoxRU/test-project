@@ -12,7 +12,7 @@ interface IAdress {
   geo: {
     lat: string;
     lng: string;
-  }
+  };
 }
 
 interface ICompany {
@@ -44,10 +44,14 @@ export interface IAlbum {
 export class CommunicationService {
 
   apiURL: string = 'http://jsonplaceholder.typicode.com/';
-  selectedUser$: BehaviorSubject<IUser | undefined> = new BehaviorSubject<IUser>(undefined); 
+  selectedUser$: BehaviorSubject<IUser | undefined> = new BehaviorSubject<IUser>(undefined);
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Выполняет запрос GET к адресу фейк-бекенд сервера + urlPart
+   * @param urlPart - частичный путь url
+   */
   private get<T>(urlPart?: string): Observable<HttpResponse<T>> {
     let url: string = this.apiURL;
     if (urlPart) {
@@ -56,13 +60,18 @@ export class CommunicationService {
     return this.http.get<T>(url, { observe: 'response' });
   }
 
-  async getUsers(): Promise<HttpResponse<IUser[]>> {
-    return this.get<IUser[]>('users')
-      .toPromise();
+  /**
+   * Получает пользователей
+   */
+  getUsers(): Observable<HttpResponse<IUser[]>> {
+    return this.get<IUser[]>('users');
   }
 
-  async getUserAlbums(userId: number): Promise<HttpResponse<IAlbum[]>> {
-    return this.get<IAlbum[]>(`albums?userId=${userId}`)
-      .toPromise();
+  /**
+   * Получает альбомы пользователя
+   * @param userId - ид пользователя
+   */
+  getUserAlbums(userId: number): Observable<HttpResponse<IAlbum[]>> {
+    return this.get<IAlbum[]>(`albums?userId=${userId}`);
   }
 }

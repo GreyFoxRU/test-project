@@ -22,6 +22,9 @@ export class AlbumsComponent extends Common implements OnInit {
     super();
   }
 
+  /**
+   * Если у пользователя есть альбомы Помечает их всех как выделенные / не выделенные, иначе устанавливает значение в параметр _selectAll
+   */
   set selectAll(value: boolean) {
     const albumids: number[] = this.userAlbums.map((itm) => itm.id);
     if (value) {
@@ -32,6 +35,9 @@ export class AlbumsComponent extends Common implements OnInit {
     this._selectAll = value;
   }
 
+  /**
+   * Если у пользователя есть альбомы и все альбомы выбраны возвращает true, иначе false.
+   */
   get selectAll() {
     let selectedAll: boolean = true;
     for (const album of this.userAlbums) {
@@ -43,20 +49,17 @@ export class AlbumsComponent extends Common implements OnInit {
   }
 
   ngOnInit(): void {
-    this.communicationService.selectedUser$.subscribe(async (user) => {
-      try {
-        this.selectedUser = user;
-        if (user) {
-          this.setIsLoading();
-          const response: HttpResponse<IAlbum[]> = await this.communicationService.getUserAlbums(user.id);
+    this.communicationService.selectedUser$.subscribe((user) => {
+      this.selectedUser = user;
+      if (user) {
+        this.setIsLoading();
+        this.communicationService.getUserAlbums(user.id).subscribe((response: HttpResponse<IAlbum[]>) => {
           if (response.status <= 300) {
             this.userAlbums = response.body;
             window.clearTimeout(this.loadingTimeout);
             this.isProcessing = false;
           }
-        }
-      } catch (err) {
-        console.error(err);
+        });
       }
     });
   }

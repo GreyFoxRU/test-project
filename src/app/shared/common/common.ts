@@ -1,10 +1,16 @@
 
+/**
+ * Класс общих свойств и функций компонентов.
+ */
 export class Common {
 
     isProcessing: boolean = false;
-    loadingTimeout?: number;
+    protected loadingTimeout?: number;
 
-    async setIsLoading(): Promise<void> {
+    /**
+     * Устанавливает свойство isProcessing в состояние true с задержкой 200 мс.
+     */
+    setIsLoading(): void {
         this.loadingTimeout = window.setTimeout(() => this.isProcessing = true, 200);
     }
 

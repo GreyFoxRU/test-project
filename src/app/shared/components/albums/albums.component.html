@@ -15,10 +15,14 @@
                     <mat-progress-bar mode="indeterminate"></mat-progress-bar>
                     <div class="loading">Loading...</div>
                 </div>
-                <div class="album" *ngIf="userAlbums.length && !isProcessing; else noData;">
-                    <div class="album-content" *ngFor="let ablum of userAlbums">
-                        <mat-card (click)="selectedAlbumIds.toggle(ablum.id)" matRipple class="custom-card"
-                            [ngClass]="{ 'selected': selectedAlbumIds.isSelected(ablum.id) }">
+                <div class="album"
+                     *ngIf="userAlbums.length && !isProcessing; else noData;">
+                    <div class="album-content"
+                         *ngFor="let ablum of userAlbums">
+                        <mat-card (click)="selectedAlbumIds.toggle(ablum.id)"
+                                  matRipple
+                                  class="custom-card"
+                                  [ngClass]="{ 'selected': selectedAlbumIds.isSelected(ablum.id) }">
                             <mat-card-header>
                                 <mat-card-title>{{ablum.title}}</mat-card-title>
                             </mat-card-header>
@@ -27,7 +31,8 @@
                 </div>
             </div>
             <ng-template #noData>
-                <div *ngIf="!isProcessing" class="text-middle">
+                <div *ngIf="!isProcessing"
+                     class="text-middle">
                     User has no albums
                 </div>
             </ng-template>
@@ -38,7 +43,9 @@
             </ng-template>
         </div>
     </div>
-    <button mat-fab [disabled]="isProcessing" class="custom-button">
+    <button mat-fab
+            [disabled]="isProcessing"
+            class="custom-button">
         <mat-icon>add</mat-icon>
     </button>
 </div>
