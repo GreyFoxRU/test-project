@@ -1,74 +1,65 @@
+@import "../../../../styles/variables.scss";
+@import "../../../../styles/mixins.scss";
+
 .header-checkbox {
     font-size: 20px;
     float: right;
-    height: 50px;
-    line-height: 50px;
+    @include height-line-height(40px);
 }
-.mat-card {
-    padding: 16px 16px 0px 16px;
+.box-body {
+    padding: 2rem;
 }
 .user-data {
+    margin-top: 10px;
     min-height: 300px;
     font-size: 25px;
-}
-.user-info {
-    margin-left: 14px;
-}
-.text-middle {
-    padding: 120px 0px;
-    text-align: center;
-}
-.sub-header {
-    font-size: 20px;
-    padding-bottom: 10px;
-    // margin-bottom: 10px;
-    border-bottom: 1px solid rgb(224, 224, 224);
-}
-.album {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.album-content {
-    margin: 10px;
+    .sub-header {
+        font-size: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $border-light-grey;
+        .user-info {
+            margin: 2px 14px;
+        }
+        margin-bottom: 10px;
+    }
+    overflow: auto;
+    .album {
+        float: left;
+        width: 100%;
+        .album-content {
+            margin-top: 10px;
+            // margin: 10px;
+            @media screen and (min-width: 1681px) {
+                @include custom-mat-card-grid(4);
+            }
+            @media screen and (max-width: 1680px) and (min-width: 1481px) {
+                @include custom-mat-card-grid(3);
+            }
+            @media screen and (max-width: 1480px) and (min-width: 1281px) {
+                @include custom-mat-card-grid(2);
+            }
+            @media screen and (max-width: 1280px) {
+                @include custom-mat-card-grid(1);
+            }
+            .mat-card {
+                padding: 16px 16px 0px 16px;
+                &:hover {
+                    cursor: pointer;
+                }
+                height: 76px;
+            }
+        }
+    }
+    .text-middle {
+        padding: 120px 0px;
+        text-align: center;
+    }
 }
 .custom-button {
     float: right;
     margin: -20px 30px 0px 0px;
-    background-color: rgb(49, 170, 222);
-}
-.custom-card {
-    width: 300px;
-    height: 76px;
-}
-.custom-card:hover {
-    cursor: pointer;
+    background-color: $primary-color;
 }
 .selected {
-    box-shadow: 0px 3px 4px 1px rgba(49, 170, 224, 0.2), 0px 0px 5px 2px rgba(49, 170, 224, 0.44), 0px 0px 1px 0px rgba(49, 170, 224, 0.12);
-}
-@media screen and (max-width: 1280px) {
-    .custom-card {
-        width: 250px;
-    }
-}
-@media screen and (max-width: 1180px) {
-    .custom-card {
-        width: 300px;
-    }
-}
-@media screen and (max-width: 1080px) {
-    .custom-card {
-        width: 220px;
-    }
-}
-@media screen and (max-width: 660px) {
-    .custom-card {
-        width: 300px;
-    }
-}
-@media screen and (max-width: 440px) {
-    .custom-card {
-        width: 220px;
-    }
+    @include monohighlighting($primary-color);
 }

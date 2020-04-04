@@ -2,14 +2,12 @@
   <div class="box-header box-dark">
     Users
     <div class="header-icon-buttons">
-      <button mat-icon-button
-              class="margin-left-5 padding-top-1">
-        <mat-icon class="grey">filter_list</mat-icon>
+      <button mat-icon-button>
+        <mat-icon>filter_list</mat-icon>
       </button>
       <button mat-icon-button
-              (click)="panelOpened = !panelOpened"
-              class="margin-left-5 padding-top-1">
-        <mat-icon class="grey">search</mat-icon>
+              (click)="panelOpened = !panelOpened">
+        <mat-icon>search</mat-icon>
       </button>
     </div>
   </div>
@@ -31,7 +29,7 @@
       </mat-form-field>
     </div>
   </mat-expansion-panel>
-  <div class="box-body scrolling">
+  <div class="box-body">
     <div *ngIf="isProcessing">
       <mat-progress-bar mode="indeterminate"></mat-progress-bar>
       <div class="loading">Loading...</div>
@@ -48,9 +46,9 @@
           }">account_circle</mat-icon>
         </div>
         <div class="user-data">
-          <div class="middle-weigth margin-bottom-1">{{user.name}}</div>
-          <div class="grey margin-bottom-1">{{user.username}}</div>
-          <div class="grey">{{user.email}}</div>
+          <div>{{user.name}}</div>
+          <div>{{user.username}}</div>
+          <div>{{user.email}}</div>
         </div>
       </div>
     </div>

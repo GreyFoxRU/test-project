@@ -1,0 +1,20 @@
+/* global templates */
+
+@mixin monohighlighting($color) {
+    box-shadow: 0px 3px 4px 1px rgba($color, 0.2), 0px 0px 5px 2px rgba($color, 0.44), 0px 0px 1px 0px rgba($color, 0.12);
+}
+
+@mixin height-line-height($height) {
+    height: $height;
+    line-height: $height;
+}
+
+@mixin custom-mat-card-grid($colCount) {
+    float: left;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    width: ((100% - (($colCount + 1) * 2%)) / $colCount);
+    &:nth-child(#{$colCount}n + 1) {
+        margin-left: 2%;
+    }
+}

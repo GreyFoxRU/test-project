@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 @include mat-core();
 
@@ -15,6 +15,9 @@ $ls-app-theme: mat-light-theme($ls-app-primary, $ls-app-accent, $ls-app-warn);
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
 
+@import "./styles/variables.scss";
+@import "./styles/mixins.scss";
+
 html,
 body {
     height: 100%;
@@ -22,7 +25,7 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: rgb(243, 243, 243);
+    background-color: $bg-color;
 }
 
 .box {
@@ -30,8 +33,7 @@ body {
     border: 0;
     border-radius: 0.2rem;
     -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
 .box-default {
@@ -39,7 +41,7 @@ body {
 }
 
 .box .box-dark {
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: $transparent-black;
 }
 
 .box-body {
@@ -52,8 +54,7 @@ body {
     border-radius: -0.8rem -0.8rem 0 0;
     font-weight: 500;
     font-size: 28px;
-    height: 50px;
-    line-height: 50px;
+    @include height-line-height(50px);
 }
 
 // users

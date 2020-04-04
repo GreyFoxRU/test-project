@@ -21,7 +21,6 @@
                          *ngFor="let ablum of userAlbums">
                         <mat-card (click)="selectedAlbumIds.toggle(ablum.id)"
                                   matRipple
-                                  class="custom-card"
                                   [ngClass]="{ 'selected': selectedAlbumIds.isSelected(ablum.id) }">
                             <mat-card-header>
                                 <mat-card-title>{{ablum.title}}</mat-card-title>
