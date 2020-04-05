@@ -8,6 +8,8 @@
 
 ### Improvements
 
+* Добавлены тесты `CommunicationService`.
+
 ### Bug fixes
 
 ## 0.2.1 (04.04.2020)
